@@ -93,4 +93,4 @@ Override with `VITE_KEYCLOAK_URL` env var if needed.
 |-----------|----------------------------------------------------|
 | SPA       | https://spa-token-demo.192.168.50.10.nip.io        |
 | API       | https://spa-token-demo.192.168.50.10.nip.io/api    |
-| Keycloak  | https://keycloak.192.168.50.10.nip.io               |
+| Keycloak  | https://keycloak.192.168.50.10.nip.io              |
