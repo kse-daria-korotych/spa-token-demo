@@ -19,9 +19,9 @@ The SPA also exposes a lab-only token dump for inspecting the access, ID, and re
 
 ## Prerequisites
 
-- Keycloak running at `https://keycloak.192.168.50.10.nip.io`
+- Keycloak running at `https://keycloak.192.168.151.10.nip.io`
 - Realm `api-security` with an OIDC client `spa-token-demo` (public client, Authorization Code flow)
-- PostgreSQL database `spa_token_demo` on `192.168.50.10:5432`
+- PostgreSQL database `spa_token_demo` on `192.168.151.10:5432`
 - TLS certificates issued by the cluster's internal Vault PKI CA
 
 ## Internal CA Trust
@@ -84,13 +84,13 @@ cd frontend && npm install && npm run dev    # starts on :3000
 cd backend && ./gradlew bootRun              # starts on :8080
 ```
 
-The frontend defaults to `https://keycloak.192.168.50.10.nip.io` for Keycloak.
+The frontend defaults to `https://keycloak.192.168.151.10.nip.io` for Keycloak.
 Override with `VITE_KEYCLOAK_URL` env var if needed.
 
 ## Deployed URLs
 
 | Service   | URL                                                |
 |-----------|----------------------------------------------------|
-| SPA       | https://spa-token-demo.192.168.50.10.nip.io        |
-| API       | https://spa-token-demo.192.168.50.10.nip.io/api    |
-| Keycloak  | https://keycloak.192.168.50.10.nip.io              |
+| SPA       | https://spa-token-demo.192.168.151.10.nip.io        |
+| API       | https://spa-token-demo.192.168.151.10.nip.io/api    |
+| Keycloak  | https://keycloak.192.168.151.10.nip.io              |
