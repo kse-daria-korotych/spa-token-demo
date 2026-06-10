@@ -39,7 +39,15 @@ public class JwtConfig {
                 .restOperations(restOperations(sslContext))
                 .build();
 
-        decoder.setJwtValidator(JwtValidators.createDefaultWithIssuer(issuerUri));
+        OAuth2TokenValidator<Jwt> audienceValidator = new JwtClaimValidator<List<String>>(
+        	"aud", aud -> aud != null && aud.contains("notes-api"));
+
+	OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuerUri);
+	OAuth2TokenValidator<Jwt> fullValidator = new DelegatingOAuth2TokenValidator<>(
+        	withIssuer, audienceValidator);
+
+	decoder.setJwtValidator(fullValidator);
+
         return decoder;
     }
 
